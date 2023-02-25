@@ -12,6 +12,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const url = "https://api.instantwebtools.net/v1/";
+// query in url
+app.get("/passenger", async (req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const size = parseInt(req.query.size) || 1000;
+    const start = (page - 1) * size;
+    const updatedUrl = `${url}passenger?start=${start}&size=${size}`;
+    try {
+        const response = await axios.get(updatedUrl);
+        res.json(response.data);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+});
+
 // get airlines data
 app.get("/airlines", async (req, res) => {
     const page = parseInt(req.query.page) || 1;
@@ -100,6 +115,8 @@ app.post("/passenger", async (req, res) => {
         res.status(500).json({ message: "Internal Server Error" });
     }
 });
+
+
 
 app.listen(PORT, () => {
     console.log(`Server running on port ===> http://localhost:${PORT}`);
