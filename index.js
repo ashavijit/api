@@ -6,7 +6,7 @@ app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -15,7 +15,7 @@ const url = "https://api.instantwebtools.net/v1/";
 // get airlines data
 app.get("/airlines", async (req, res) => {
     const page = parseInt(req.query.page) || 1;
-    const size = parseInt(req.query.size) || 10;
+    const size = parseInt(req.query.size) || 1000;
     const start = (page - 1) * size;
     const updatedUrl = `${url}passenger?start=${start}&size=${size}`;
     try {
