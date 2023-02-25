@@ -2,7 +2,10 @@
 ## Introduction
 This is a simple api documentation for the api endpoints of the application. The api endpoints are listed below.
 
-### API URL : ```https://external-api.onrender.com```
+### API URL : 
+```bash 
+https://external-api.onrender.com 
+```
 
 ## Endpoints
 
