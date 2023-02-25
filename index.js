@@ -14,10 +14,10 @@ app.use(express.urlencoded({ extended: true }));
 const url = "https://api.instantwebtools.net/v1/";
 // query in url
 app.get("/passenger", async (req, res) => {
-    const page = parseInt(req.query.page) || 1;
+    const page = parseInt(req.query.page) || 10;
     const size = parseInt(req.query.size) || 1000;
     const start = (page - 1) * size;
-    const updatedUrl = `${url}passenger?start=${start}&size=${size}`;
+    const updatedUrl = `${url}passenger?page=${page}&size=${size}`;
     try {
         const response = await axios.get(updatedUrl);
         res.json(response.data);
