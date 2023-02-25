@@ -5,6 +5,7 @@ This is a simple api documentation for the api endpoints of the application. The
 ### API URL : 
 ```bash 
 https://external-api.onrender.com 
+
 ```
 
 ## Endpoints
